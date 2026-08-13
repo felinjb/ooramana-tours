@@ -13,30 +13,20 @@
         :root {
             --primary: #1b2e23;      /* Deep Forest Green */
             --accent: #c48b3f;       /* Warm Terracotta / Gold */
-            --accent-light: #f4ede2;
             --bg: #faf8f5;           /* Soft Ivory Background */
-            --card-bg: #ffffff;
             --text-dark: #222222;
-            --text-muted: #666666;
-            --radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --text-muted: #555555;
+            --transition: all 0.3s ease;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
             color: var(--text-dark);
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, .brand {
@@ -44,662 +34,173 @@
             letter-spacing: 1px;
         }
 
-        /* Header & Navigation */
+        /* Animations */
+        .anim-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .anim-fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* Header */
         header {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             background: rgba(27, 46, 35, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex; justify-content: space-between; align-items: center;
         }
-
-        .brand {
-            color: #ffffff;
-            font-size: 1.4rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .brand span {
-            color: var(--accent);
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
+        .brand { color: #ffffff; font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+        .brand span { color: var(--accent); }
+        
+        nav { display: flex; gap: 25px; align-items: center; }
         nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
+            color: #ffffff; text-decoration: none; font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 1px; transition: var(--transition);
         }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
+        nav a:hover { color: var(--accent); }
         .nav-btn {
-            background-color: var(--accent);
-            color: white !important;
-            padding: 10px 22px;
-            border-radius: 30px;
-            transition: var(--transition);
+            background-color: var(--accent); color: white !important;
+            padding: 10px 22px; border-radius: 30px;
         }
+        .nav-btn:hover { background-color: #a6722e; }
 
-        .nav-btn:hover {
-            background-color: #a6722e;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            min-height: 100vh;
-            background: linear-gradient(180deg, rgba(27, 46, 35, 0.5) 0%, rgba(27, 46, 35, 0.8) 100%), 
-                        url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 100px 20px 40px;
+            height: 100vh;
+            background: linear-gradient(rgba(27, 46, 35, 0.6), rgba(27, 46, 35, 0.8)), 
+                        url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1800&q=80') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white; padding: 0 20px;
         }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        .hero h1 { font-size: 4rem; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.2rem; max-width: 600px; color: #e0e0e0; margin-bottom: 40px; }
+        .btn {
+            background-color: var(--accent); color: white; padding: 15px 35px;
+            text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
+            border-radius: 5px; transition: var(--transition);
         }
+        .btn:hover { background-color: #a6722e; transform: translateY(-3px); }
 
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin-bottom: 35px;
-            color: #e0e0e0;
-            font-weight: 300;
+        /* Sections */
+        .section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+        
+        /* About Section */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
         }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 90px 20px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Interactive Experience Grid */
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .package-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.06);
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .package-card:hover {
-            transform: translateY(-8px);
+        .about-text h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 20px; }
+        .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; }
+        .about-img {
+            width: 100%; height: 500px; border-radius: 12px; object-fit: cover;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .package-card.featured {
-            border: 2px solid var(--accent);
+        /* Summary Section */
+        .summary-section { background-color: white; text-align: center; padding: 100px 5%; }
+        .summary-header { max-width: 700px; margin: 0 auto 50px; }
+        .summary-header h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto 50px;
         }
-
-        .badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .package-body {
-            padding: 35px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .package-title {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .package-duration {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: block;
-            font-size: 0.95rem;
-        }
-
-        .package-list {
-            list-style: none;
-            margin-bottom: 30px;
-            flex-grow: 1;
-        }
-
-        .package-list li {
-            padding: 10px 0;
-            border-bottom: 1px dashed #eeeeee;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: #444;
-        }
-
-        .package-list li::before {
-            content: "✓";
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .select-btn {
-            background-color: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 14px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            transition: var(--transition);
-        }
-
-        .select-btn:hover {
-            background-color: var(--accent);
-        }
-
-        /* Booking Section */
-        .booking-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #111e16 100%);
-            color: white;
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin-top: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-        }
-
-        .booking-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .booking-info h2 {
-            font-size: 2.4rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .booking-info p {
-            color: #b0c2b6;
-            margin-bottom: 25px;
-        }
-
-        .price-calculator {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 25px;
-            border-radius: var(--radius);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .calculator-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .calculator-total {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 15px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        /* Interactive Booking Form */
-        .booking-form {
-            background: white;
-            padding: 40px;
-            border-radius: var(--radius);
-            color: var(--text-dark);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--primary);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #cccccc;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(196, 139, 63, 0.2);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .book-now-btn {
-            background-color: #25D366; /* WhatsApp Green */
-            color: white;
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            transition: var(--transition);
-        }
-
-        .book-now-btn:hover {
-            background-color: #1eb956;
-            transform: translateY(-2px);
-        }
-
-        /* Highlights / Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            height: 250px;
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 20px;
-        }
+        .feature-card { padding: 30px; border-radius: 12px; background: var(--bg); transition: var(--transition); }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .feature-card h3 { color: var(--primary); margin-bottom: 10px; }
 
         /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
+        footer { background: var(--primary); color: #b0c2b6; text-align: center; padding: 40px 20px; }
 
-        footer p {
-            color: #b0c2b6;
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .booking-container { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            nav { display: none; } /* Simplified for clean mobile view */
+            .about-grid, .feature-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            nav { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
-        <a href="#" class="brand">OORAMANA <span>HERITAGE</span></a>
+        <a href="index.html" class="brand">OORAMANA <span>HERITAGE</span></a>
         <nav>
-            <a href="#about">About</a>
-            <a href="#packages">Experiences</a>
-            <a href="#highlights">Highlights</a>
-            <a href="#booking" class="nav-btn">Book Now</a>
+            <a href="index.html">Home</a>
+            <a href="packages.html">Tours & Booking</a>
+            <a href="packages.html#booking" class="nav-btn">Book Now</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <h1>Authentic Kerala Village Journeys</h1>
-        <p>Step into the peaceful rhythm of Ooramana. Uncover ancient heritage, hands-on craft workshops, and untouched natural beauty.</p>
-        <a href="#booking" class="select-btn" style="width: auto; padding: 16px 40px; font-size: 1.1rem; background-color: var(--accent);">Reserve Your Experience</a>
-    </section>
-
-    <!-- About Section -->
-    <section class="container" id="about">
-        <div class="section-header">
-            <h2>Welcome to Ooramana</h2>
-            <p>A tranquil village nestled along historic trade and river routes in Kerala. Experience genuine warmth, village cuisine, and living craftsmanship.</p>
+        <h1 class="anim-fade-up">The Soul of Kerala</h1>
+        <p class="anim-fade-up delay-1">Step into the peaceful rhythm of Ooramana. Uncover ancient heritage, hands-on craft workshops, and untouched natural beauty.</p>
+        <div class="anim-fade-up delay-2">
+            <a href="packages.html" class="btn">Explore Experiences</a>
         </div>
     </section>
 
-    <!-- Experience Packages -->
-    <section class="container" id="packages" style="padding-top: 0;">
-        <div class="section-header">
-            <h2>Select Your Journey</h2>
-            <p>Every tour is private and customizable based on your arrival time and preferences.</p>
+    <section class="section about-grid">
+        <div class="about-text anim-fade-up">
+            <h2>About Ooramana</h2>
+            <p>Nestled in the lush landscapes of Ernakulam district, Ooramana is a village where time slows down. Known for its deep-rooted heritage and vibrant local culture, it offers a rare window into authentic Kerala village life.</p>
+            <p>From the historic architecture of ancient temples and the nearby Kadamattom Church to the rhythmic sounds of local blacksmiths and potters, Ooramana is a living museum of traditions. Our tours are designed to connect you intimately with the land, the food, and the people.</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=800&q=80" alt="Kerala Village" class="about-img anim-fade-up delay-1">
+    </section>
+
+    <section class="summary-section">
+        <div class="summary-header anim-fade-up">
+            <h2>Journeys Crafted for You</h2>
+            <p style="color: var(--text-muted);">Whether you have a few hours or a full day, we offer immersive experiences that showcase the very best of our village.</p>
+        </div>
+        
+        <div class="feature-grid">
+            <div class="feature-card anim-fade-up delay-1">
+                <div class="feature-icon">🏺</div>
+                <h3>Artisan Workshops</h3>
+                <p>Get hands-on with traditional pottery making and witness the skill of local blacksmiths.</p>
+            </div>
+            <div class="feature-card anim-fade-up delay-2">
+                <div class="feature-icon">⛪</div>
+                <h3>Heritage Sites</h3>
+                <p>Explore the sacred temple and the historic architecture of the famous Kadamattom Church.</p>
+            </div>
+            <div class="feature-card anim-fade-up delay-3">
+                <div class="feature-icon">🛶</div>
+                <h3>Nature & Culinary</h3>
+                <p>Wander through rubber plantations, boat down tranquil rivers, and enjoy authentic home-cooked meals.</p>
+            </div>
         </div>
 
-        <div class="packages-grid">
-            
-            <!-- Half-Day Card -->
-            <div class="package-card">
-                <div class="package-body">
-                    <h3 class="package-title">Half-Day Trail</h3>
-                    <span class="package-duration">⏱ Approx. 4 Hours</span>
-                    <ul class="package-list">
-                        <li>Sacred Temple Visit</li>
-                        <li>Historic Kadamattom Church</li>
-                        <li>Live Pottery Workshop</li>
-                        <li>Traditional Blacksmith Forge</li>
-                        <li>Authentic Kerala Snack Making</li>
-                        <li>Local Village Market Walk</li>
-                    </ul>
-                    <button class="select-btn" onclick="selectPackage('Half-Day Trail', 1200)">Select Package</button>
-                </div>
-            </div>
-
-            <!-- Full-Day Card (Featured) -->
-            <div class="package-card featured">
-                <span class="badge">Most Popular</span>
-                <div class="package-body">
-                    <h3 class="package-title">Full-Day Immersion</h3>
-                    <span class="package-duration">⏱ Approx. 8 Hours</span>
-                    <ul class="package-list">
-                        <li><strong>All Half-Day Trail Activities</strong></li>
-                        <li>Guided Rubber Plantation Walk</li>
-                        <li>Tranquil River Boating Experience</li>
-                        <li>Authentic Kerala Lunch at Village Home</li>
-                        <li>Leisurely Refreshment Break</li>
-                    </ul>
-                    <button class="select-btn" onclick="selectPackage('Full-Day Immersion', 2500)" style="background-color: var(--accent);">Select Package</button>
-                </div>
-            </div>
-
-            <!-- Cave & Heritage Card -->
-            <div class="package-card">
-                <div class="package-body">
-                    <h3 class="package-title">Heritage & Cave Safari</h3>
-                    <span class="package-duration">⏱ Approx. 5 Hours</span>
-                    <ul class="package-list">
-                        <li>Local Auto-Rickshaw Village Safari</li>
-                        <li>Guided Visit to Kochareekkal Caves</li>
-                        <li>Heritage Village Landscapes</li>
-                        <li>Historic Kadamattom Church Tour</li>
-                        <li>Traditional Refreshments Included</li>
-                    </ul>
-                    <button class="select-btn" onclick="selectPackage('Heritage & Cave Safari', 1800)">Select Package</button>
-                </div>
-            </div>
-
+        <div class="anim-fade-up">
+            <a href="packages.html" class="btn" style="background-color: var(--primary);">View Tour Packages</a>
         </div>
     </section>
 
-    <!-- Highlights Visual Section -->
-    <section class="container" id="highlights">
-        <div class="section-header">
-            <h2>Experience Highlights</h2>
-            <p>Memories waiting to be made in Ooramana.</p>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80" alt="River Boating">
-                <div class="gallery-overlay">
-                    <h3>River Boating</h3>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80" alt="Pottery Making">
-                <div class="gallery-overlay">
-                    <h3>Pottery Artisans</h3>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=600&q=80" alt="Rubber Plantation">
-                <div class="gallery-overlay">
-                    <h3>Rubber Plantation Trails</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Booking Engine Section -->
-    <section class="container" id="booking">
-        <div class="booking-section">
-            <div class="booking-container">
-                
-                <div class="booking-info">
-                    <h2>Book Your Private Tour</h2>
-                    <p>Select your preferences below to generate your instant booking quote. Once submitted, our team will confirm your booking immediately via WhatsApp.</p>
-                    
-                    <div class="price-calculator">
-                        <div class="calculator-row">
-                            <span>Selected Tour:</span>
-                            <strong id="calc-package">Full-Day Immersion</strong>
-                        </div>
-                        <div class="calculator-row">
-                            <span>Number of Guests:</span>
-                            <strong id="calc-guests">2 Guests</strong>
-                        </div>
-                        <div class="calculator-row calculator-total">
-                            <span>Estimated Total:</span>
-                            <span id="calc-total">₹5,000</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Booking Form -->
-                <div class="booking-form">
-                    <form id="tourBookingForm" onsubmit="handleBooking(event)">
-                        
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" class="form-control" placeholder="e.g. John Doe" required>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="tourDate">Preferred Date</label>
-                                <input type="date" id="tourDate" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="guestCount">Number of Guests</label>
-                                <select id="guestCount" class="form-control" onchange="updateCalculation()">
-                                    <option value="1">1 Person</option>
-                                    <option value="2" selected>2 People</option>
-                                    <option value="3">3 People</option>
-                                    <option value="4">4 People</option>
-                                    <option value="5">5+ People (Group)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="packageSelect">Choose Package</label>
-                            <select id="packageSelect" class="form-control" onchange="updateCalculation()">
-                                <option value="Half-Day Trail" data-price="1200">Half-Day Trail (₹1,200/person)</option>
-                                <option value="Full-Day Immersion" data-price="2500" selected>Full-Day Immersion (₹2,500/person)</option>
-                                <option value="Heritage & Cave Safari" data-price="1800">Heritage & Cave Safari (₹1,800/person)</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="specialRequests">Special Customization / Requests</label>
-                            <textarea id="specialRequests" class="form-control" rows="3" placeholder="Food preferences, pickup requests, timing preferences..."></textarea>
-                        </div>
-
-                        <button type="submit" class="book-now-btn">
-                            💬 Confirm Booking via WhatsApp
-                        </button>
-
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Ooramana Heritage Village Tours. All rights reserved.</p>
-        <p style="margin-top: 8px;">Ooramana, Ernakulam District, Kerala, India</p>
     </footer>
 
-    <!-- JavaScript Logic -->
+    <!-- Scroll Animation Script -->
     <script>
-        // Set default date picker to tomorrow
-        const dateInput = document.getElementById('tourDate');
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        dateInput.value = tomorrow.toISOString().split('T')[0];
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
 
-        // Global Selection Variables
-        let currentPricePerPerson = 2500;
-
-        function selectPackage(packageName, pricePerPerson) {
-            const select = document.getElementById('packageSelect');
-            for(let i = 0; i < select.options.length; i++) {
-                if(select.options[i].value === packageName) {
-                    select.selectedIndex = i;
-                    break;
-                }
-            }
-            updateCalculation();
-            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function updateCalculation() {
-            const packageSelect = document.getElementById('packageSelect');
-            const guestSelect = document.getElementById('guestCount');
-            
-            const selectedOption = packageSelect.options[packageSelect.selectedIndex];
-            const packageName = selectedOption.value;
-            const price = parseInt(selectedOption.getAttribute('data-price'));
-            const guests = parseInt(guestSelect.value);
-
-            const total = price * guests;
-
-            // Update UI
-            document.getElementById('calc-package').innerText = packageName;
-            document.getElementById('calc-guests').innerText = guests + (guests === 1 ? ' Guest' : ' Guests');
-            document.getElementById('calc-total').innerText = '₹' + total.toLocaleString('en-IN');
-        }
-
-        function handleBooking(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('fullName').value;
-            const date = document.getElementById('tourDate').value;
-            const guests = document.getElementById('guestCount').value;
-            const packageName = document.getElementById('packageSelect').value;
-            const total = document.getElementById('calc-total').innerText;
-            const requests = document.getElementById('specialRequests').value;
-
-            // Format WhatsApp Message
-            const whatsappNumber = "910000000000"; // REPLACE WITH YOUR ACTUAL WHATSAPP NUMBER (with country code)
-            
-            const message = `Hello Ooramana Heritage Tours!%0A%0A` +
-                `*New Booking Request*%0A` +
-                `👤 *Name:* ${encodeURIComponent(name)}%0A` +
-                `📅 *Date:* ${date}%0A` +
-                `👥 *Guests:* ${guests}%0A` +
-                `🌿 *Package:* ${encodeURIComponent(packageName)}%0A` +
-                `💰 *Estimated Total:* ${encodeURIComponent(total)}%0A` +
-                (requests ? `📝 *Notes:* ${encodeURIComponent(requests)}%0A` : '') +
-                `%0APlease confirm availability for this date.`;
-
-            // Open WhatsApp
-            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-        }
-
-        // Initialize calculation on page load
-        updateCalculation();
+            document.querySelectorAll('.anim-fade-up').forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>
