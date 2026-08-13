@@ -3,194 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ooramana Village Tours | Authentic Kerala</title>
+    <title>Ooramana Heritage | Home</title>
     <style>
-        /* Minimalist, Cinematic Styling */
         :root {
             --primary: #1a1a1a;
-            --secondary: #4a5d23; /* Earthy Kerala Green */
+            --secondary: #4a5d23;
             --bg: #f9f9f7;
             --text: #333333;
         }
-        
         body {
             margin: 0;
-            font-family: 'Georgia', serif; /* Elegant serif for a heritage feel */
+            font-family: 'Georgia', serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
         }
-
-        h1, h2, h3 {
-            font-weight: 400;
-            margin-bottom: 1rem;
+        /* Interactive Navigation Bar */
+        nav {
+            background-color: var(--primary);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--secondary);
+        }
         /* Cinematic Hero Section */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1600&q=80') center/cover;
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1600&q=80') center/cover;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            padding: 20px;
         }
-
         .hero h1 {
-            font-size: 3.5rem;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
+            font-size: 4rem;
+            letter-spacing: 3px;
+            margin-bottom: 0;
         }
-
         .hero p {
             font-size: 1.2rem;
             font-family: 'Arial', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            margin-top: 10px;
         }
-
-        /* Content Sections */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .packages {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background: white;
-            padding: 3rem 2rem;
-            border: 1px solid #eaeaea;
-            flex: 1;
-            min-width: 300px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: var(--secondary);
-            font-size: 1.8rem;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 1rem;
-        }
-
-        .card ul {
-            text-align: left;
-            list-style-type: none;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            color: #555;
-        }
-
-        .card ul li {
-            margin: 15px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .card ul li::before {
-            content: "•";
-            color: var(--secondary);
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-        }
-
-        .custom-note {
-            margin-top: 4rem;
-            padding: 2rem;
-            background-color: #f0f2eb;
-            font-style: italic;
-        }
-
-        /* Minimalist Button */
         .btn {
             display: inline-block;
-            margin-top: 2rem;
+            margin-top: 30px;
             padding: 15px 40px;
-            background-color: var(--primary);
+            background-color: var(--secondary);
             color: white;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-family: 'Arial', sans-serif;
-            font-size: 0.9rem;
-            transition: background 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
         }
-
         .btn:hover {
-            background-color: var(--secondary);
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem;
-            background: var(--primary);
-            color: white;
-            font-family: 'Arial', sans-serif;
-            font-size: 0.9rem;
+            background-color: #3a4a1c;
+            transform: scale(1.05); /* Interactive pop effect */
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tours.html">Our Tours</a>
+        <a href="mailto:your-email@example.com">Contact</a>
+    </nav>
+
     <header class="hero">
         <h1>Ooramana Heritage</h1>
-        <p>Experience the Soul of Kerala</p>
+        <p>EXPERIENCE THE SOUL OF KERALA</p>
+        <a href="tours.html" class="btn">Explore Packages</a>
     </header>
-
-    <section class="section">
-        <h2>Immersive Village Journeys</h2>
-        <p style="color: #666; max-width: 600px; margin: 0 auto; font-family: 'Arial', sans-serif;">Step away from the city and discover the untold stories of Ooramana. From ancient architecture to the hands of local artisans, experience village life in its purest form.</p>
-
-        <div class="packages">
-            <div class="card">
-                <h3>Half-Day Trail</h3>
-                <ul>
-                    <li>Sacred Temple Visit</li>
-                    <li>Historic Kadamattom Church</li>
-                    <li>Traditional Pottery Making</li>
-                    <li>Local Blacksmith Workshop</li>
-                    <li>Authentic Snacks Making Session</li>
-                    <li>Local Shop Exploration</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Full-Day Immersion</h3>
-                <ul>
-                    <li><strong>All Half-Day Trail activities included</strong></li>
-                    <li>Rubber Plantation Walk</li>
-                    <li>Tranquil River Boating</li>
-                    <li>Authentic Lunch at a Village House</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="custom-note">
-            <p>Every journey is unique. All our itineraries are fully customizable to match your pace and interests.</p>
-            <a href="mailto:your-email@example.com" class="btn">Design Your Tour</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Ooramana Heritage Tours. All rights reserved.</p>
-    </footer>
 
 </body>
 </html>
