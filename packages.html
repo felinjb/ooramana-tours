@@ -1,263 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Packages | Ooramana Heritage</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #1b2e23;
-            --accent: #c48b3f;
-            --bg: #faf8f5;
-            --card-bg: #ffffff;
-            --text-dark: #222222;
-            --text-muted: #666666;
-            --transition: all 0.3s ease;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-dark); line-height: 1.7; }
-        h1, h2, h3, .brand { font-family: 'Cinzel', serif; }
-
-        /* Animations */
-        .anim-fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-
-        /* Header */
-        header {
-            position: fixed; top: 0; width: 100%; background: var(--primary); z-index: 1000;
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
-        }
-        .brand { color: #ffffff; font-size: 1.4rem; font-weight: 700; text-decoration: none; }
-        .brand span { color: var(--accent); }
-        nav { display: flex; gap: 25px; align-items: center; }
-        nav a { color: #ffffff; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; transition: var(--transition); }
-        nav a:hover { color: var(--accent); }
-        .nav-btn { background-color: var(--accent); color: white !important; padding: 10px 22px; border-radius: 30px; }
-
-        /* Page Hero */
-        .page-hero {
-            background: var(--primary); color: white; padding: 150px 20px 80px; text-align: center;
-        }
-        .page-hero h1 { font-size: 3rem; margin-bottom: 10px; color: var(--accent); }
-
-        /* Packages Grid */
-        .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
-        .packages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        
-        .package-card {
-            background: var(--card-bg); border-radius: 12px; padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition);
-            border-top: 4px solid var(--primary);
-        }
-        .package-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .package-card.featured { border-top: 4px solid var(--accent); position: relative; }
-        
-        .badge {
-            position: absolute; top: -15px; right: 20px; background: var(--accent); color: white;
-            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;
-        }
-
-        .package-title { font-size: 1.8rem; color: var(--primary); margin-bottom: 5px; }
-        .package-duration { color: var(--accent); font-weight: 600; display: block; margin-bottom: 25px; }
-        
-        .package-list { list-style: none; margin-bottom: 30px; }
-        .package-list li { padding: 10px 0; border-bottom: 1px dashed #eee; display: flex; gap: 10px; }
-        .package-list li::before { content: "✓"; color: var(--accent); font-weight: bold; }
-
-        .select-btn {
-            background: var(--primary); color: white; padding: 12px; width: 100%; border: none;
-            border-radius: 5px; font-weight: bold; cursor: pointer; transition: var(--transition);
-        }
-        .select-btn:hover { background: var(--accent); }
-        .featured .select-btn { background: var(--accent); }
-        .featured .select-btn:hover { background: #a6722e; }
-
-        /* Booking Section */
-        .booking-section { background: white; border-radius: 12px; padding: 50px; margin-top: 60px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-        .booking-section h2 { color: var(--primary); margin-bottom: 20px; text-align: center; font-size: 2.2rem; }
-        
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
-        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; }
-        .form-control:focus { outline: none; border-color: var(--accent); }
-        
-        .price-display {
-            background: var(--bg); padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center;
-            font-size: 1.2rem; border: 1px solid #eaeaea;
-        }
-        .price-display strong { color: var(--accent); font-size: 1.8rem; display: block; margin-top: 5px; }
-
-        .book-now-btn {
-            background-color: #25D366; color: white; width: 100%; padding: 18px; border: none;
-            border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: var(--transition);
-        }
-        .book-now-btn:hover { background-color: #1eb956; transform: translateY(-2px); }
-
-        footer { background: var(--primary); color: #b0c2b6; text-align: center; padding: 40px 20px; margin-top: 50px; }
-
-        @media (max-width: 768px) {
-            .packages-grid, .form-row { grid-template-columns: 1fr; }
-            nav { display: none; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiences & Booking — Ooramana Heritage Tours</title>
+<meta name="description" content="Choose the Half-Day Trail or Full-Day Immersion through Ooramana, Kerala, and book instantly via WhatsApp with a live price calculator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="brand">OORAMANA <span>HERITAGE</span></a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="packages.html">Tours & Booking</a>
-            <a href="#booking" class="nav-btn">Book Now</a>
-        </nav>
-    </header>
+<!-- ===== Navbar ===== -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">O</span> Ooramana Heritage
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Experiences</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#booking" class="btn btn-gold nav-cta">Book a Trail</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <div class="page-hero">
-        <h1 class="anim-fade-up">Our Experiences</h1>
-        <p class="anim-fade-up delay-1">Choose your perfect village immersion</p>
+<!-- ===== Page Header ===== -->
+<header style="padding-top:150px; padding-bottom:40px;">
+  <div class="container">
+    <span class="eyebrow reveal">Experiences</span>
+    <h1 class="reveal reveal-delay-1" style="font-size:clamp(2.1rem,4vw,3.2rem); max-width:18ch;">Two ways to walk through Ooramana.</h1>
+    <p class="reveal reveal-delay-2" style="max-width:56ch; font-size:1.05rem;">Both trails are private and led at your pace. Every detail below can be adjusted once you tell us what matters most to you.</p>
+  </div>
+</header>
+
+<!-- ===== Packages ===== -->
+<section id="packages" style="padding-top:20px;">
+  <div class="container">
+    <div class="pkg-grid">
+
+      <!-- Package 1 -->
+      <div class="pkg-card neu-out reveal reveal-delay-1">
+        <span class="pkg-name">Package 01</span>
+        <h3>Half-Day Trail</h3>
+        <p>A focused morning or afternoon through Ooramana's heritage sites and living crafts — ideal if your time is limited but your curiosity isn't.</p>
+        <p class="pkg-price">₹1,200 <span>/ person</span></p>
+        <ul class="pkg-list">
+          <li>Visit to a sacred village temple</li>
+          <li>Historic Kadamattom Church tour</li>
+          <li>Exploration of local village shops</li>
+          <li>Live pottery-making demonstration</li>
+          <li>Traditional blacksmith workshop visit</li>
+          <li>Authentic local snacks-making session</li>
+        </ul>
+        <a href="#booking" class="btn btn-primary btn-block" onclick="document.getElementById('package').value='half'; document.getElementById('package').dispatchEvent(new Event('change'));">Select This Trail</a>
+      </div>
+
+      <!-- Package 2 -->
+      <div class="pkg-card featured neu-out reveal reveal-delay-2">
+        <span class="pkg-badge">Most Immersive</span>
+        <span class="pkg-name">Package 02</span>
+        <h3>Full-Day Immersion</h3>
+        <p>Everything in the Half-Day Trail, extended into a full village day — ending with a home-cooked lunch and unhurried time on the water.</p>
+        <p class="pkg-price">₹2,500 <span>/ person</span></p>
+        <ul class="pkg-list">
+          <li>Every activity from the Half-Day Trail</li>
+          <li>Guided walk through a working rubber plantation</li>
+          <li>Tranquil river boating on the backwaters</li>
+          <li>Authentic home-style lunch at a village house</li>
+        </ul>
+        <a href="#booking" class="btn btn-gold btn-block" onclick="document.getElementById('package').value='full'; document.getElementById('package').dispatchEvent(new Event('change'));">Select This Trail</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Booking Engine ===== -->
+<section id="booking">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Book Your Trail</span>
+      <h2>Reserve your date</h2>
+      <p>Fill in your details — the estimated price updates automatically as you choose your package and group size. Confirming sends everything straight to us on WhatsApp.</p>
     </div>
 
-    <section class="container">
-        <div class="packages-grid">
-            <!-- Half-Day -->
-            <div class="package-card anim-fade-up">
-                <h3 class="package-title">Half-Day Trail</h3>
-                <span class="package-duration">⏱ Approx. 4 Hours</span>
-                <ul class="package-list">
-                    <li>Sacred Temple Visit</li>
-                    <li>Historic Kadamattom Church</li>
-                    <li>Live Pottery Workshop</li>
-                    <li>Traditional Blacksmith Forge</li>
-                    <li>Authentic Kerala Snack Making</li>
-                    <li>Local Village Market Walk</li>
-                </ul>
-                <button class="select-btn" onclick="selectPackage('Half-Day Trail', 1200)">Select Package</button>
-            </div>
-
-            <!-- Full-Day -->
-            <div class="package-card featured anim-fade-up delay-1">
-                <span class="badge">Most Popular</span>
-                <h3 class="package-title">Full-Day Immersion</h3>
-                <span class="package-duration">⏱ Approx. 8 Hours</span>
-                <ul class="package-list">
-                    <li><strong>All Half-Day Trail Activities</strong></li>
-                    <li>Guided Rubber Plantation Walk</li>
-                    <li>Tranquil River Boating Experience</li>
-                    <li>Authentic Kerala Lunch at Village Home</li>
-                    <li>Leisurely Refreshment Break</li>
-                </ul>
-                <button class="select-btn" onclick="selectPackage('Full-Day Immersion', 2500)">Select Package</button>
-            </div>
+    <div class="booking-wrap">
+      <form class="form-card neu-out reveal reveal-delay-1" id="booking-form" novalidate>
+        <div class="form-row">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="full-name" placeholder="e.g. Anjali Nair" required>
         </div>
 
-        <!-- Booking Form -->
-        <div class="booking-section anim-fade-up delay-2" id="booking">
-            <h2>Book Your Private Tour</h2>
-            <form id="tourBookingForm" onsubmit="handleBooking(event)">
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" id="fullName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Preferred Date</label>
-                        <input type="date" id="tourDate" class="form-control" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Choose Package</label>
-                        <select id="packageSelect" class="form-control" onchange="updateCalculation()">
-                            <option value="Half-Day Trail" data-price="1200">Half-Day Trail (₹1,200/person)</option>
-                            <option value="Full-Day Immersion" data-price="2500" selected>Full-Day Immersion (₹2,500/person)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Number of Guests</label>
-                        <select id="guestCount" class="form-control" onchange="updateCalculation()">
-                            <option value="1">1 Person</option>
-                            <option value="2" selected>2 People</option>
-                            <option value="3">3 People</option>
-                            <option value="4">4 People</option>
-                            <option value="5">5+ People</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Special Requests</label>
-                    <textarea id="specialRequests" class="form-control" rows="2"></textarea>
-                </div>
-
-                <div class="price-display">
-                    Estimated Total
-                    <strong id="calc-total">₹5,000</strong>
-                </div>
-
-                <button type="submit" class="book-now-btn">💬 Confirm Booking via WhatsApp</button>
-            </form>
+        <div class="form-row two-col">
+          <div>
+            <label for="pref-date">Preferred Date</label>
+            <input type="date" id="pref-date" name="pref-date" required>
+          </div>
+          <div>
+            <label for="guests">Number of Guests</label>
+            <select id="guests" name="guests">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="7">7 Guests</option>
+              <option value="8">8 Guests</option>
+              <option value="9">9 Guests</option>
+              <option value="10">10 Guests</option>
+            </select>
+          </div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Ooramana Heritage Village Tours. All rights reserved.</p>
-    </footer>
+        <div class="form-row">
+          <label for="package">Package Selection</label>
+          <select id="package" name="package">
+            <option value="half">Half-Day Trail — ₹1,200 / person</option>
+            <option value="full">Full-Day Immersion — ₹2,500 / person</option>
+          </select>
+        </div>
 
-    <script>
-        // Animations
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.anim-fade-up').forEach(el => observer.observe(el));
-            
-            // Set date
-            const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
-            document.getElementById('tourDate').value = tomorrow.toISOString().split('T')[0];
-            updateCalculation();
-        });
+        <div class="form-row" style="margin-bottom:8px;">
+          <label for="special-requests">Special Requests / Customizations</label>
+          <textarea id="special-requests" name="special-requests" placeholder="Dietary needs, mobility requirements, interests you'd like us to focus on..."></textarea>
+        </div>
 
-        function selectPackage(packageName, price) {
-            const select = document.getElementById('packageSelect');
-            for(let i=0; i<select.options.length; i++) {
-                if(select.options[i].value === packageName) select.selectedIndex = i;
-            }
-            updateCalculation();
-            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-        }
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top:18px;">💬 Confirm Booking via WhatsApp</button>
+      </form>
 
-        function updateCalculation() {
-            const packageSelect = document.getElementById('packageSelect');
-            const price = parseInt(packageSelect.options[packageSelect.selectedIndex].getAttribute('data-price'));
-            const guests = parseInt(document.getElementById('guestCount').value);
-            document.getElementById('calc-total').innerText = '₹' + (price * guests).toLocaleString('en-IN');
-        }
+      <aside class="price-summary neu-out reveal reveal-delay-2">
+        <h3>Estimated Price</h3>
+        <div class="price-line"><span>Package</span><span id="line-package">Half-Day Trail</span></div>
+        <div class="price-line"><span>Price per person</span><span id="line-per-person">₹1,200</span></div>
+        <div class="price-line"><span>Guests</span><span id="line-guests">2</span></div>
 
-        function handleBooking(e) {
-            e.preventDefault();
-            const name = document.getElementById('fullName').value;
-            const date = document.getElementById('tourDate').value;
-            const guests = document.getElementById('guestCount').value;
-            const package = document.getElementById('packageSelect').value;
-            const total = document.getElementById('calc-total').innerText;
-            const requests = document.getElementById('specialRequests').value;
+        <div class="price-total neu-in">
+          <div class="label">Estimated Total</div>
+          <div class="amount" id="total-amount">₹2,400</div>
+        </div>
+        <p class="price-note">Final pricing is confirmed on WhatsApp. Custom add-ons may adjust the total.</p>
+      </aside>
+    </div>
+  </div>
+</section>
 
-            // CHANGE THIS TO YOUR PHONE NUMBER (include country code 91)
-            const whatsappNumber = "910000000000"; 
-            
-            const msg = `*New Booking Request*%0A👤 Name: ${name}%0A📅 Date: ${date}%0A👥 Guests: ${guests}%0A🌿 Package: ${package}%0A💰 Total: ${total}%0A📝 Notes: ${requests}`;
-            window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
-        }
-    </script>
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="brand-mark" style="width:30px;height:30px;font-size:.78rem;">O</span> Ooramana Heritage Tours</div>
+        <p>Private, fully customizable heritage trails through the village of Ooramana, Kerala.</p>
+        <div class="social-row">
+          <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+          <a href="#" class="social-icon" aria-label="Facebook">f</a>
+          <a href="#" class="social-icon" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="index.html">Home</a>
+        <a href="packages.html">Experiences</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Reach Us</h5>
+        <p>📞 +91 99999 99999</p>
+        <p>✉️ hello@ooramanaheritage.com</p>
+        <p>📍 Ooramana, Kadamattom, Ernakulam, Kerala</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ooramana Heritage Tours. All rights reserved.</span>
+      <span>Crafted with care in Kerala.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
