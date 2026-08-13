@@ -3,204 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ooramana Heritage & Village Tours | Kerala</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <title>Ooramana Heritage | 3D Minimal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1b2e23;      /* Deep Forest Green */
-            --accent: #c48b3f;       /* Warm Terracotta / Gold */
-            --bg: #faf8f5;           /* Soft Ivory Background */
-            --text-dark: #222222;
-            --text-muted: #555555;
-            --transition: all 0.3s ease;
+            --bg: #e0e5ec;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --accent: #3E7C59;
+            /* 3D Shadows */
+            --shadow-out: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+            --shadow-in: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg);
             color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        h1, h2, h3, .brand {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 1px;
+        /* 3D Navigation */
+        nav {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg);
+            box-shadow: var(--shadow-out);
+            border-radius: 0 0 20px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Animations */
-        .anim-fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--accent);
         }
-        .anim-fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0; width: 100%;
-            background: rgba(27, 46, 35, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 15px 5%;
-            display: flex; justify-content: space-between; align-items: center;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 30px;
+            font-weight: 400;
+            transition: color 0.3s;
         }
-        .brand { color: #ffffff; font-size: 1.4rem; font-weight: 700; text-decoration: none; }
-        .brand span { color: var(--accent); }
-        
-        nav { display: flex; gap: 25px; align-items: center; }
-        nav a {
-            color: #ffffff; text-decoration: none; font-size: 0.9rem;
-            text-transform: uppercase; letter-spacing: 1px; transition: var(--transition);
-        }
-        nav a:hover { color: var(--accent); }
-        .nav-btn {
-            background-color: var(--accent); color: white !important;
-            padding: 10px 22px; border-radius: 30px;
-        }
-        .nav-btn:hover { background-color: #a6722e; }
 
-        /* Hero */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(27, 46, 35, 0.6), rgba(27, 46, 35, 0.8)), 
-                        url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1800&q=80') center/cover;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; padding: 0 20px;
+        .nav-links a:hover {
+            color: var(--accent);
         }
-        .hero h1 { font-size: 4rem; margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.2rem; max-width: 600px; color: #e0e0e0; margin-bottom: 40px; }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        /* Floating 3D Card */
+        .hero-card {
+            background-color: var(--bg);
+            border-radius: 30px;
+            box-shadow: var(--shadow-out);
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 60px;
+            animation: floatUp 1s ease-out;
+        }
+
+        .hero-card h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .hero-card p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* 3D Button */
         .btn {
-            background-color: var(--accent); color: white; padding: 15px 35px;
-            text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
-            border-radius: 5px; transition: var(--transition);
-        }
-        .btn:hover { background-color: #a6722e; transform: translateY(-3px); }
-
-        /* Sections */
-        .section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
-        
-        /* About Section */
-        .about-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-        }
-        .about-text h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 20px; }
-        .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem; }
-        .about-img {
-            width: 100%; height: 500px; border-radius: 12px; object-fit: cover;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: inline-block;
+            background-color: var(--bg);
+            color: var(--accent);
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: var(--shadow-out);
+            transition: all 0.2s ease;
         }
 
-        /* Summary Section */
-        .summary-section { background-color: white; text-align: center; padding: 100px 5%; }
-        .summary-header { max-width: 700px; margin: 0 auto 50px; }
-        .summary-header h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-        
-        .feature-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto 50px;
+        .btn:hover {
+            color: var(--text-dark);
         }
-        .feature-card { padding: 30px; border-radius: 12px; background: var(--bg); transition: var(--transition); }
-        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 20px; }
-        .feature-card h3 { color: var(--primary); margin-bottom: 10px; }
 
-        /* Footer */
-        footer { background: var(--primary); color: #b0c2b6; text-align: center; padding: 40px 20px; }
+        .btn:active {
+            box-shadow: var(--shadow-in);
+        }
 
-        @media (max-width: 768px) {
-            .about-grid, .feature-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
-            nav { display: none; }
+        /* Floating Image Frame */
+        .image-frame {
+            border-radius: 20px;
+            padding: 10px;
+            background: var(--bg);
+            box-shadow: var(--shadow-out);
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .image-frame img {
+            border-radius: 15px;
+            display: block;
+            max-width: 100%;
+            height: auto;
+            opacity: 0.9;
+        }
+
+        /* Simple Animations */
+        @keyframes floatUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="brand">OORAMANA <span>HERITAGE</span></a>
-        <nav>
+    <nav>
+        <div class="logo">OORAMANA</div>
+        <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="packages.html">Tours & Booking</a>
-            <a href="packages.html#booking" class="nav-btn">Book Now</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1 class="anim-fade-up">The Soul of Kerala</h1>
-        <p class="anim-fade-up delay-1">Step into the peaceful rhythm of Ooramana. Uncover ancient heritage, hands-on craft workshops, and untouched natural beauty.</p>
-        <div class="anim-fade-up delay-2">
-            <a href="packages.html" class="btn">Explore Experiences</a>
+            <a href="packages.html">Experiences</a>
         </div>
-    </section>
+    </nav>
 
-    <section class="section about-grid">
-        <div class="about-text anim-fade-up">
-            <h2>About Ooramana</h2>
-            <p>Nestled in the lush landscapes of Ernakulam district, Ooramana is a village where time slows down. Known for its deep-rooted heritage and vibrant local culture, it offers a rare window into authentic Kerala village life.</p>
-            <p>From the historic architecture of ancient temples and the nearby Kadamattom Church to the rhythmic sounds of local blacksmiths and potters, Ooramana is a living museum of traditions. Our tours are designed to connect you intimately with the land, the food, and the people.</p>
-        </div>
-        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=800&q=80" alt="Kerala Village" class="about-img anim-fade-up delay-1">
-    </section>
-
-    <section class="summary-section">
-        <div class="summary-header anim-fade-up">
-            <h2>Journeys Crafted for You</h2>
-            <p style="color: var(--text-muted);">Whether you have a few hours or a full day, we offer immersive experiences that showcase the very best of our village.</p>
-        </div>
-        
-        <div class="feature-grid">
-            <div class="feature-card anim-fade-up delay-1">
-                <div class="feature-icon">🏺</div>
-                <h3>Artisan Workshops</h3>
-                <p>Get hands-on with traditional pottery making and witness the skill of local blacksmiths.</p>
-            </div>
-            <div class="feature-card anim-fade-up delay-2">
-                <div class="feature-icon">⛪</div>
-                <h3>Heritage Sites</h3>
-                <p>Explore the sacred temple and the historic architecture of the famous Kadamattom Church.</p>
-            </div>
-            <div class="feature-card anim-fade-up delay-3">
-                <div class="feature-icon">🛶</div>
-                <h3>Nature & Culinary</h3>
-                <p>Wander through rubber plantations, boat down tranquil rivers, and enjoy authentic home-cooked meals.</p>
+    <div class="container">
+        <div class="hero-card">
+            <h1>The Soul of Kerala</h1>
+            <p>Step into the peaceful rhythm of Ooramana. Uncover ancient heritage, hands-on craft workshops, and untouched natural beauty through our curated village journeys.</p>
+            <a href="packages.html" class="btn">View Packages</a>
+            
+            <div class="image-frame">
+                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80" alt="Kerala Backwaters">
             </div>
         </div>
+    </div>
 
-        <div class="anim-fade-up">
-            <a href="packages.html" class="btn" style="background-color: var(--primary);">View Tour Packages</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Ooramana Heritage Village Tours. All rights reserved.</p>
-    </footer>
-
-    <!-- Scroll Animation Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.15 });
-
-            document.querySelectorAll('.anim-fade-up').forEach(el => observer.observe(el));
-        });
-    </script>
 </body>
 </html>
