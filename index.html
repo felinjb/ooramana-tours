@@ -1,159 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ooramana Heritage | 3D Minimal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #e0e5ec;
-            --text-dark: #2d3436;
-            --text-light: #636e72;
-            --accent: #3E7C59;
-            /* 3D Shadows */
-            --shadow-out: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
-            --shadow-in: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* 3D Navigation */
-        nav {
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--bg);
-            box-shadow: var(--shadow-out);
-            border-radius: 0 0 20px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-weight: 600;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            color: var(--accent);
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            margin-left: 30px;
-            font-weight: 400;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 20px;
-        }
-
-        /* Floating 3D Card */
-        .hero-card {
-            background-color: var(--bg);
-            border-radius: 30px;
-            box-shadow: var(--shadow-out);
-            padding: 50px;
-            text-align: center;
-            margin-bottom: 60px;
-            animation: floatUp 1s ease-out;
-        }
-
-        .hero-card h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-
-        .hero-card p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        /* 3D Button */
-        .btn {
-            display: inline-block;
-            background-color: var(--bg);
-            color: var(--accent);
-            text-decoration: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-weight: 600;
-            box-shadow: var(--shadow-out);
-            transition: all 0.2s ease;
-        }
-
-        .btn:hover {
-            color: var(--text-dark);
-        }
-
-        .btn:active {
-            box-shadow: var(--shadow-in);
-        }
-
-        /* Floating Image Frame */
-        .image-frame {
-            border-radius: 20px;
-            padding: 10px;
-            background: var(--bg);
-            box-shadow: var(--shadow-out);
-            display: inline-block;
-            margin-top: 30px;
-        }
-
-        .image-frame img {
-            border-radius: 15px;
-            display: block;
-            max-width: 100%;
-            height: auto;
-            opacity: 0.9;
-        }
-
-        /* Simple Animations */
-        @keyframes floatUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ooramana Heritage Tours — Village Tourism in Kerala</title>
+<meta name="description" content="Discover Ooramana, Kerala — a private, fully customizable heritage trail through temples, living craftsmanship, backwaters and village life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">OORAMANA</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="packages.html">Experiences</a>
-        </div>
-    </nav>
+<!-- ===== Navbar ===== -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">O</span> Ooramana Heritage
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Experiences</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="packages.html" class="btn btn-gold nav-cta">Book a Trail</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <div class="container">
-        <div class="hero-card">
-            <h1>The Soul of Kerala</h1>
-            <p>Step into the peaceful rhythm of Ooramana. Uncover ancient heritage, hands-on craft workshops, and untouched natural beauty through our curated village journeys.</p>
-            <a href="packages.html" class="btn">View Packages</a>
-            
-            <div class="image-frame">
-                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80" alt="Kerala Backwaters">
-            </div>
-        </div>
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Ooramana · Ernakulam · Kerala</span>
+      <h1>Walk the quiet <em>heart</em> of a Kerala village, one story at a time.</h1>
+      <p class="lede">A slow, private trail through Ooramana's temples, churches, workshops and backwaters — led by a local host, shaped entirely around you.</p>
+      <div class="hero-actions">
+        <a href="packages.html" class="btn btn-primary">Explore Experiences →</a>
+        <a href="contact.html" class="btn">Meet Your Host</a>
+      </div>
     </div>
 
+    <div class="hero-visual reveal">
+      <div class="trail-path">
+        <div class="trail-node" style="top:10%; left:12%;">🛕</div>
+        <div class="trail-label" style="top:2%; left:6%;">Temple</div>
+
+        <div class="trail-node" style="top:32%; left:58%;">⛪</div>
+        <div class="trail-label" style="top:24%; left:56%;">Kadamattom Church</div>
+
+        <div class="trail-node" style="top:58%; left:20%;">🏺</div>
+        <div class="trail-label" style="top:78%; left:10%;">Pottery</div>
+
+        <div class="trail-node" style="top:72%; left:64%;">🚤</div>
+        <div class="trail-label" style="top:88%; left:56%;">River Boating</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== About ===== -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-frame reveal">
+      <span class="icon">🌾</span>
+      <h4 style="margin:0;">Ooramana</h4>
+      <span>A village along the backwaters</span>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <span class="eyebrow">About the Village</span>
+      <h2>Tranquil by nature, rich by heritage.</h2>
+      <p>Tucked beside slow-moving backwaters near Kadamattom in Ernakulam district, Ooramana has kept its rhythm largely unchanged for generations. Temple bells still mark the hour, potters still shape clay by hand, and the same families that farm the paddy fields also welcome travellers into their homes.</p>
+      <p>This is village tourism built on relationships, not spectacle — a place where heritage architecture, living craftsmanship and everyday life sit quietly side by side, waiting to be noticed.</p>
+
+      <div class="about-points">
+        <div class="about-point neu-flat reveal reveal-delay-1">
+          <div class="dot">🛕</div>
+          <div><h4>Living Heritage</h4><p>Centuries-old temples and churches still active in daily village life.</p></div>
+        </div>
+        <div class="about-point neu-flat reveal reveal-delay-2">
+          <div class="dot">✋</div>
+          <div><h4>Working Craftsmanship</h4><p>Watch — and try — pottery and blacksmithing exactly as it's practised today.</p></div>
+        </div>
+        <div class="about-point neu-flat reveal reveal-delay-3">
+          <div class="dot">🌿</div>
+          <div><h4>Untouched Landscape</h4><p>Rubber groves, paddy fields and calm backwaters, best seen on foot or by boat.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Tour Summary / Customization ===== -->
+<section id="experiences-summary">
+  <div class="container">
+    <div class="summary-band reveal">
+      <div>
+        <span class="eyebrow" style="color:var(--gold-soft);">How It Works</span>
+        <h2>Two trails. Endless ways to walk them.</h2>
+        <p>Every visit begins the same way — a warm welcome and a plan built around you. From there, choose a half-day taste of the village or a full-day immersion into its rhythm, then shape the pace, the stops and the stories to match exactly what you're curious about.</p>
+        <a href="packages.html" class="btn btn-gold">View Both Packages</a>
+      </div>
+      <div class="custom-card">
+        <h4 style="color:var(--cream); margin-bottom:16px;">Fully Customizable</h4>
+        <ul>
+          <li>Set your own pace — linger at the pottery wheel or move on</li>
+          <li>Private groups only, never merged with strangers</li>
+          <li>Dietary needs and mobility requirements accommodated</li>
+          <li>Add-on requests welcomed, from photography stops to longer boat rides</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Highlights Gallery ===== -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Highlights</span>
+      <h2>A glimpse of the trail</h2>
+      <p>Four moments guests return to talking about most.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-card neu-out reveal reveal-delay-1">
+        <div class="gallery-frame gf-1">
+          <div class="icon">🚤</div>
+          <h4>River Boating</h4>
+          <p>A calm paddle through Ooramana's backwaters</p>
+        </div>
+      </div>
+      <div class="gallery-card neu-out reveal reveal-delay-2">
+        <div class="gallery-frame gf-2">
+          <div class="icon">🏺</div>
+          <h4>Pottery Making</h4>
+          <p>Hands-on time at a working potter's wheel</p>
+        </div>
+      </div>
+      <div class="gallery-card neu-out reveal reveal-delay-3">
+        <div class="gallery-frame gf-3">
+          <div class="icon">⛪</div>
+          <h4>Heritage Architecture</h4>
+          <p>The historic Kadamattom Church and village temples</p>
+        </div>
+      </div>
+      <div class="gallery-card neu-out reveal reveal-delay-4">
+        <div class="gallery-frame gf-4">
+          <div class="icon">🔨</div>
+          <h4>Blacksmith Craft</h4>
+          <p>A trade forged the same way for generations</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Testimonials ===== -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Guest Stories</span>
+      <h2>What travellers say</h2>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card neu-out reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">Ooramana felt worlds away from the usual tourist trail. Our host let us set the pace, and the pottery session with a local craftsman was the highlight of our entire Kerala trip.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">R</div>
+          <div><h5>Ravi &amp; Meera</h5><span>Full-Day Immersion, Bengaluru</span></div>
+        </div>
+      </div>
+      <div class="testi-card neu-out reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="quote">Warm, unhurried, and completely private. We asked to spend extra time at the church and no one blinked — the whole day simply adjusted around us.</p>
+        <div class="testi-person">
+          <div class="testi-avatar">S</div>
+          <div><h5>Sarah T.</h5><span>Half-Day Trail, London</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="brand-mark" style="width:30px;height:30px;font-size:.78rem;">O</span> Ooramana Heritage Tours</div>
+        <p>Private, fully customizable heritage trails through the village of Ooramana, Kerala.</p>
+        <div class="social-row">
+          <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+          <a href="#" class="social-icon" aria-label="Facebook">f</a>
+          <a href="#" class="social-icon" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="index.html">Home</a>
+        <a href="packages.html">Experiences</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Reach Us</h5>
+        <p>📞 +91 99999 99999</p>
+        <p>✉️ hello@ooramanaheritage.com</p>
+        <p>📍 Ooramana, Kadamattom, Ernakulam, Kerala</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ooramana Heritage Tours. All rights reserved.</span>
+      <span>Crafted with care in Kerala.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
