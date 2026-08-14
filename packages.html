@@ -11,66 +11,74 @@
 <body>
 
 <!-- ===== Navbar ===== -->
-<nav class="navbar">
-  <div class="nav-inner">
+<nav class="navbar solid scrolled">
+  <div class="container nav-inner">
     <a href="index.html" class="brand">
       <span class="brand-mark">O</span> Ooramana Heritage
     </a>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="packages.html">Experiences</a></li>
+      <li><a href="packages.html" class="active">Experiences</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="#booking" class="btn btn-gold nav-cta">Book a Trail</a></li>
+      <li><a href="#booking" class="btn btn-ghost-dark">Book a Trail</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- ===== Page Header ===== -->
-<header style="padding-top:150px; padding-bottom:40px;">
+<header class="pkg-header">
   <div class="container">
     <span class="eyebrow reveal">Experiences</span>
-    <h1 class="reveal reveal-delay-1" style="font-size:clamp(2.1rem,4vw,3.2rem); max-width:18ch;">Two ways to walk through Ooramana.</h1>
-    <p class="reveal reveal-delay-2" style="max-width:56ch; font-size:1.05rem;">Both trails are private and led at your pace. Every detail below can be adjusted once you tell us what matters most to you.</p>
+    <h1 class="reveal reveal-delay-1" style="font-size:clamp(2.4rem,5vw,3.8rem); max-width:20ch;">Two ways to walk through <em>Ooramana</em>.</h1>
+    <p class="reveal reveal-delay-2" style="max-width:56ch; font-size:1.1rem;">Both trails are private and led at your pace. Every detail below can be adjusted once you tell us what matters most to you.</p>
   </div>
 </header>
 
 <!-- ===== Packages ===== -->
-<section id="packages" style="padding-top:20px;">
+<section id="packages" style="padding-top:10px;">
   <div class="container">
     <div class="pkg-grid">
 
       <!-- Package 1 -->
-      <div class="pkg-card neu-out reveal reveal-delay-1">
-        <span class="pkg-name">Package 01</span>
-        <h3>Half-Day Trail</h3>
-        <p>A focused morning or afternoon through Ooramana's heritage sites and living crafts — ideal if your time is limited but your curiosity isn't.</p>
-        <p class="pkg-price">₹1,200 <span>/ person</span></p>
-        <ul class="pkg-list">
-          <li>Visit to a sacred village temple</li>
-          <li>Historic Kadamattom Church tour</li>
-          <li>Exploration of local village shops</li>
-          <li>Live pottery-making demonstration</li>
-          <li>Traditional blacksmith workshop visit</li>
-          <li>Authentic local snacks-making session</li>
-        </ul>
-        <a href="#booking" class="btn btn-primary btn-block" onclick="document.getElementById('package').value='half'; document.getElementById('package').dispatchEvent(new Event('change'));">Select This Trail</a>
+      <div class="pkg-card reveal reveal-delay-1">
+        <div class="pkg-top">
+          <span class="pkg-name">Package 01</span>
+          <h3>Half-Day Trail</h3>
+          <p>A focused morning or afternoon through Ooramana's heritage sites and living crafts — ideal if your time is limited but your curiosity isn't.</p>
+          <p class="pkg-price">₹1,200 <span>/ person</span></p>
+          <ul class="pkg-list">
+            <li>Visit to a sacred village temple</li>
+            <li>Historic Kadamattom Church tour</li>
+            <li>Exploration of local village shops</li>
+            <li>Live pottery-making demonstration</li>
+            <li>Traditional blacksmith workshop visit</li>
+            <li>Authentic local snacks-making session</li>
+          </ul>
+        </div>
+        <div class="pkg-bottom">
+          <a href="#booking" class="btn btn-ghost-dark btn-block" onclick="document.getElementById('package').value='half'; document.getElementById('package').dispatchEvent(new Event('change'));">Select This Trail</a>
+        </div>
       </div>
 
       <!-- Package 2 -->
-      <div class="pkg-card featured neu-out reveal reveal-delay-2">
+      <div class="pkg-card featured reveal reveal-delay-2">
         <span class="pkg-badge">Most Immersive</span>
-        <span class="pkg-name">Package 02</span>
-        <h3>Full-Day Immersion</h3>
-        <p>Everything in the Half-Day Trail, extended into a full village day — ending with a home-cooked lunch and unhurried time on the water.</p>
-        <p class="pkg-price">₹2,500 <span>/ person</span></p>
-        <ul class="pkg-list">
-          <li>Every activity from the Half-Day Trail</li>
-          <li>Guided walk through a working rubber plantation</li>
-          <li>Tranquil river boating on the backwaters</li>
-          <li>Authentic home-style lunch at a village house</li>
-        </ul>
-        <a href="#booking" class="btn btn-gold btn-block" onclick="document.getElementById('package').value='full'; document.getElementById('package').dispatchEvent(new Event('change'));">Select This Trail</a>
+        <div class="pkg-top">
+          <span class="pkg-name">Package 02</span>
+          <h3>Full-Day Immersion</h3>
+          <p>Everything in the Half-Day Trail, extended into a full village day — ending with a home-cooked lunch and unhurried time on the water.</p>
+          <p class="pkg-price">₹2,500 <span>/ person</span></p>
+          <ul class="pkg-list">
+            <li>Every activity from the Half-Day Trail</li>
+            <li>Guided walk through a working rubber plantation</li>
+            <li>Tranquil river boating on the backwaters</li>
+            <li>Authentic home-style lunch at a village house</li>
+          </ul>
+        </div>
+        <div class="pkg-bottom">
+          <a href="#booking" class="btn btn-gold btn-block" onclick="document.getElementById('package').value='full'; document.getElementById('package').dispatchEvent(new Event('change'));">Select This Trail</a>
+        </div>
       </div>
 
     </div>
@@ -78,16 +86,16 @@
 </section>
 
 <!-- ===== Booking Engine ===== -->
-<section id="booking">
+<section id="booking" class="grain">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Book Your Trail</span>
-      <h2>Reserve your date</h2>
+      <h2>Reserve your <em>date</em></h2>
       <p>Fill in your details — the estimated price updates automatically as you choose your package and group size. Confirming sends everything straight to us on WhatsApp.</p>
     </div>
 
     <div class="booking-wrap">
-      <form class="form-card neu-out reveal reveal-delay-1" id="booking-form" novalidate>
+      <form class="form-card reveal reveal-delay-1" id="booking-form" novalidate>
         <div class="form-row">
           <label for="full-name">Full Name</label>
           <input type="text" id="full-name" name="full-name" placeholder="e.g. Anjali Nair" required>
@@ -131,13 +139,13 @@
         <button type="submit" class="btn btn-primary btn-block" style="margin-top:18px;">💬 Confirm Booking via WhatsApp</button>
       </form>
 
-      <aside class="price-summary neu-out reveal reveal-delay-2">
+      <aside class="price-summary reveal reveal-delay-2">
         <h3>Estimated Price</h3>
         <div class="price-line"><span>Package</span><span id="line-package">Half-Day Trail</span></div>
         <div class="price-line"><span>Price per person</span><span id="line-per-person">₹1,200</span></div>
         <div class="price-line"><span>Guests</span><span id="line-guests">2</span></div>
 
-        <div class="price-total neu-in">
+        <div class="price-total">
           <div class="label">Estimated Total</div>
           <div class="amount" id="total-amount">₹2,400</div>
         </div>
@@ -152,7 +160,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><span class="brand-mark" style="width:30px;height:30px;font-size:.78rem;">O</span> Ooramana Heritage Tours</div>
+        <div class="footer-brand"><span class="brand-mark" style="width:32px;height:32px;font-size:.85rem;">O</span> Ooramana Heritage Tours</div>
         <p>Private, fully customizable heritage trails through the village of Ooramana, Kerala.</p>
         <div class="social-row">
           <a href="#" class="social-icon" aria-label="Instagram">📷</a>
