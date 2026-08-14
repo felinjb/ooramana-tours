@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ooramana Heritage Tours — Village Tourism in Kerala</title>
-<meta name="description" content="Discover Ooramana, Kerala — a private, fully customizable heritage trail through temples, living craftsmanship, backwaters and village life.">
+<meta name="description" content="Discover Ooramana, Kerala — a private, fully customizable heritage trail through temples, living craftsmanship, and backwaters.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -12,77 +12,66 @@
 
 <!-- ===== Navbar ===== -->
 <nav class="navbar">
-  <div class="nav-inner">
+  <div class="container nav-inner">
     <a href="index.html" class="brand">
       <span class="brand-mark">O</span> Ooramana Heritage
     </a>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="packages.html">Experiences</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="packages.html" class="btn btn-gold nav-cta">Book a Trail</a></li>
+      <li><a href="packages.html" class="btn btn-ghost-dark">Book a Trail</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- ===== Hero ===== -->
 <header class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">Ooramana · Ernakulam · Kerala</span>
-      <h1>Walk the quiet <em>heart</em> of a Kerala village, one story at a time.</h1>
-      <p class="lede">A slow, private trail through Ooramana's temples, churches, workshops and backwaters — led by a local host, shaped entirely around you.</p>
-      <div class="hero-actions">
-        <a href="packages.html" class="btn btn-primary">Explore Experiences →</a>
-        <a href="contact.html" class="btn">Meet Your Host</a>
-      </div>
-    </div>
-
-    <div class="hero-visual reveal">
-      <div class="trail-path">
-        <div class="trail-node" style="top:10%; left:12%;">🛕</div>
-        <div class="trail-label" style="top:2%; left:6%;">Temple</div>
-
-        <div class="trail-node" style="top:32%; left:58%;">⛪</div>
-        <div class="trail-label" style="top:24%; left:56%;">Kadamattom Church</div>
-
-        <div class="trail-node" style="top:58%; left:20%;">🏺</div>
-        <div class="trail-label" style="top:78%; left:10%;">Pottery</div>
-
-        <div class="trail-node" style="top:72%; left:64%;">🚤</div>
-        <div class="trail-label" style="top:88%; left:56%;">River Boating</div>
-      </div>
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <span class="eyebrow" style="color:var(--gold-soft);">Ooramana · Ernakulam · Kerala</span>
+    <h1>Where the backwaters remember every story <em>ever told</em>.</h1>
+    <p class="lede">A slow, private trail through Ooramana's temples, living workshops and quiet waterways — led by a local host, shaped entirely around you.</p>
+    <div class="hero-actions">
+      <a href="packages.html" class="btn btn-primary">Explore Experiences</a>
+      <a href="contact.html" class="btn btn-outline">Meet Your Host</a>
     </div>
   </div>
+  <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
 </header>
 
 <!-- ===== About ===== -->
-<section id="about">
+<section id="about" class="grain">
   <div class="container about-grid">
-    <div class="about-frame reveal">
-      <span class="icon">🌾</span>
-      <h4 style="margin:0;">Ooramana</h4>
-      <span>A village along the backwaters</span>
+    <div class="about-visual reveal">
+      <div class="arch-outline"></div>
+      <div class="arch-frame tone-1">
+        <div class="arch-photo">
+          <span class="icon">🌾</span>
+          <h4>Ooramana</h4>
+          <span>A village along the backwaters</span>
+        </div>
+      </div>
     </div>
 
     <div class="reveal reveal-delay-1">
       <span class="eyebrow">About the Village</span>
-      <h2>Tranquil by nature, rich by heritage.</h2>
+      <h2>Tranquil by nature, <em>rich</em> by heritage.</h2>
       <p>Tucked beside slow-moving backwaters near Kadamattom in Ernakulam district, Ooramana has kept its rhythm largely unchanged for generations. Temple bells still mark the hour, potters still shape clay by hand, and the same families that farm the paddy fields also welcome travellers into their homes.</p>
       <p>This is village tourism built on relationships, not spectacle — a place where heritage architecture, living craftsmanship and everyday life sit quietly side by side, waiting to be noticed.</p>
 
       <div class="about-points">
-        <div class="about-point neu-flat reveal reveal-delay-1">
-          <div class="dot">🛕</div>
+        <div class="about-point reveal reveal-delay-1">
+          <span class="num">01</span>
           <div><h4>Living Heritage</h4><p>Centuries-old temples and churches still active in daily village life.</p></div>
         </div>
-        <div class="about-point neu-flat reveal reveal-delay-2">
-          <div class="dot">✋</div>
+        <div class="about-point reveal reveal-delay-2">
+          <span class="num">02</span>
           <div><h4>Working Craftsmanship</h4><p>Watch — and try — pottery and blacksmithing exactly as it's practised today.</p></div>
         </div>
-        <div class="about-point neu-flat reveal reveal-delay-3">
-          <div class="dot">🌿</div>
+        <div class="about-point reveal reveal-delay-3">
+          <span class="num">03</span>
           <div><h4>Untouched Landscape</h4><p>Rubber groves, paddy fields and calm backwaters, best seen on foot or by boat.</p></div>
         </div>
       </div>
@@ -91,94 +80,114 @@
 </section>
 
 <!-- ===== Tour Summary / Customization ===== -->
-<section id="experiences-summary">
+<section id="experiences-summary" class="band-forest grain">
   <div class="container">
     <div class="summary-band reveal">
       <div>
-        <span class="eyebrow" style="color:var(--gold-soft);">How It Works</span>
-        <h2>Two trails. Endless ways to walk them.</h2>
+        <span class="eyebrow">How It Works</span>
+        <h2>Two trails. Endless ways to <em>walk</em> them.</h2>
         <p>Every visit begins the same way — a warm welcome and a plan built around you. From there, choose a half-day taste of the village or a full-day immersion into its rhythm, then shape the pace, the stops and the stories to match exactly what you're curious about.</p>
         <a href="packages.html" class="btn btn-gold">View Both Packages</a>
       </div>
-      <div class="custom-card">
-        <h4 style="color:var(--cream); margin-bottom:16px;">Fully Customizable</h4>
-        <ul>
-          <li>Set your own pace — linger at the pottery wheel or move on</li>
-          <li>Private groups only, never merged with strangers</li>
-          <li>Dietary needs and mobility requirements accommodated</li>
-          <li>Add-on requests welcomed, from photography stops to longer boat rides</li>
-        </ul>
-      </div>
+      <ul class="custom-list">
+        <li><span class="mark">✦</span>Set your own pace — linger at the pottery wheel or move on</li>
+        <li><span class="mark">✦</span>Private groups only, never merged with strangers</li>
+        <li><span class="mark">✦</span>Dietary needs and mobility requirements accommodated</li>
+        <li><span class="mark">✦</span>Add-on requests welcomed, from photography stops to longer boat rides</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ===== Highlights Gallery ===== -->
+<!-- ===== Highlights Gallery (masonry) ===== -->
 <section id="gallery">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Highlights</span>
-      <h2>A glimpse of the trail</h2>
-      <p>Four moments guests return to talking about most.</p>
+      <h2>A glimpse of the <em>trail</em></h2>
+      <p>Moments guests return to talking about most.</p>
     </div>
 
-    <div class="gallery-grid">
-      <div class="gallery-card neu-out reveal reveal-delay-1">
-        <div class="gallery-frame gf-1">
-          <div class="icon">🚤</div>
-          <h4>River Boating</h4>
-          <p>A calm paddle through Ooramana's backwaters</p>
+    <div class="masonry">
+      <div class="masonry-item h-tall reveal reveal-delay-1">
+        <div class="masonry-photo tone-1">
+          <span class="m-icon">🚤</span>
+          <div class="m-text">
+            <h4>River Boating</h4>
+            <p>A calm paddle through Ooramana's backwaters</p>
+          </div>
         </div>
       </div>
-      <div class="gallery-card neu-out reveal reveal-delay-2">
-        <div class="gallery-frame gf-2">
-          <div class="icon">🏺</div>
-          <h4>Pottery Making</h4>
-          <p>Hands-on time at a working potter's wheel</p>
+      <div class="masonry-item reveal reveal-delay-2">
+        <div class="masonry-photo tone-2">
+          <span class="m-icon">🏺</span>
+          <div class="m-text">
+            <h4>Pottery Making</h4>
+            <p>Hands-on time at a working potter's wheel</p>
+          </div>
         </div>
       </div>
-      <div class="gallery-card neu-out reveal reveal-delay-3">
-        <div class="gallery-frame gf-3">
-          <div class="icon">⛪</div>
-          <h4>Heritage Architecture</h4>
-          <p>The historic Kadamattom Church and village temples</p>
+      <div class="masonry-item h-short reveal reveal-delay-3">
+        <div class="masonry-photo tone-3">
+          <span class="m-icon">⛪</span>
+          <div class="m-text">
+            <h4>Heritage Architecture</h4>
+            <p>The historic Kadamattom Church and village temples</p>
+          </div>
         </div>
       </div>
-      <div class="gallery-card neu-out reveal reveal-delay-4">
-        <div class="gallery-frame gf-4">
-          <div class="icon">🔨</div>
-          <h4>Blacksmith Craft</h4>
-          <p>A trade forged the same way for generations</p>
+      <div class="masonry-item h-tall reveal reveal-delay-4">
+        <div class="masonry-photo tone-4">
+          <span class="m-icon">🔨</span>
+          <div class="m-text">
+            <h4>Blacksmith Craft</h4>
+            <p>A trade forged the same way for generations</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Testimonials ===== -->
-<section id="testimonials">
+<!-- ===== Testimonials (carousel) ===== -->
+<section id="testimonials" class="grain">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Guest Stories</span>
-      <h2>What travellers say</h2>
+      <h2>What travellers <em>say</em></h2>
     </div>
 
-    <div class="testi-grid">
-      <div class="testi-card neu-out reveal reveal-delay-1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="quote">Ooramana felt worlds away from the usual tourist trail. Our host let us set the pace, and the pottery session with a local craftsman was the highlight of our entire Kerala trip.</p>
-        <div class="testi-person">
-          <div class="testi-avatar">R</div>
-          <div><h5>Ravi &amp; Meera</h5><span>Full-Day Immersion, Bengaluru</span></div>
+    <div class="carousel reveal reveal-delay-1">
+      <div class="carousel-track">
+        <div class="carousel-slides">
+          <div class="carousel-slide">
+            <div class="testi-card">
+              <div class="testi-mark">"</div>
+              <div class="testi-stars">★★★★★</div>
+              <p class="quote">Ooramana felt worlds away from the usual tourist trail. Our host let us set the pace, and the pottery session with a local craftsman was the highlight of our entire Kerala trip.</p>
+              <div class="testi-person">
+                <h5>Ravi &amp; Meera</h5>
+                <span>Full-Day Immersion, Bengaluru</span>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="testi-card">
+              <div class="testi-mark">"</div>
+              <div class="testi-stars">★★★★★</div>
+              <p class="quote">Warm, unhurried, and completely private. We asked to spend extra time at the church and no one blinked — the whole day simply adjusted around us.</p>
+              <div class="testi-person">
+                <h5>Sarah T.</h5>
+                <span>Half-Day Trail, London</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="testi-card neu-out reveal reveal-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="quote">Warm, unhurried, and completely private. We asked to spend extra time at the church and no one blinked — the whole day simply adjusted around us.</p>
-        <div class="testi-person">
-          <div class="testi-avatar">S</div>
-          <div><h5>Sarah T.</h5><span>Half-Day Trail, London</span></div>
-        </div>
+      <div class="carousel-controls">
+        <button class="carousel-arrow prev" aria-label="Previous testimonial">←</button>
+        <div class="carousel-dots"></div>
+        <button class="carousel-arrow next" aria-label="Next testimonial">→</button>
       </div>
     </div>
   </div>
@@ -189,7 +198,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><span class="brand-mark" style="width:30px;height:30px;font-size:.78rem;">O</span> Ooramana Heritage Tours</div>
+        <div class="footer-brand"><span class="brand-mark" style="width:32px;height:32px;font-size:.85rem;">O</span> Ooramana Heritage Tours</div>
         <p>Private, fully customizable heritage trails through the village of Ooramana, Kerala.</p>
         <div class="social-row">
           <a href="#" class="social-icon" aria-label="Instagram">📷</a>
@@ -220,4 +229,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
