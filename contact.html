@@ -11,8 +11,8 @@
 <body>
 
 <!-- ===== Navbar ===== -->
-<nav class="navbar">
-  <div class="nav-inner">
+<nav class="navbar solid scrolled">
+  <div class="container nav-inner">
     <a href="index.html" class="brand">
       <span class="brand-mark">O</span> Ooramana Heritage
     </a>
@@ -20,56 +20,61 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="packages.html">Experiences</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="packages.html" class="btn btn-gold nav-cta">Book a Trail</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="packages.html" class="btn btn-ghost-dark">Book a Trail</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- ===== Host Section ===== -->
-<header style="padding-top:150px; padding-bottom:20px;">
+<header style="padding-top:180px; padding-bottom:20px; background:linear-gradient(180deg, var(--ivory-deep), var(--ivory));">
   <div class="container host-grid">
     <div class="host-frame reveal">
-      <span class="icon">🙏</span>
-      <span style="font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--ink-soft);">Your Host</span>
+      <div class="arch-outline" style="width:88%; height:92%; top:-16px; left:6%; z-index:-1;"></div>
+      <div class="arch-frame tone-5">
+        <div class="arch-photo">
+          <span class="icon">🙏</span>
+          <span>Your Host</span>
+        </div>
+      </div>
     </div>
     <div class="reveal reveal-delay-1">
       <span class="eyebrow">About the Host</span>
-      <h1 style="font-size:clamp(2rem,3.6vw,2.8rem);">A local voice for a place I've always called home.</h1>
-      <p style="font-size:1.05rem; max-width:56ch;">I grew up on these lanes, learned the names of every temple and workshop from my grandparents, and now spend my days making sure Ooramana is shared the way it deserves to be — slowly, honestly, and on your terms.</p>
+      <h1 style="font-size:clamp(2.2rem,4vw,3.2rem);">A local voice for a place I've always called <em>home</em>.</h1>
+      <p style="font-size:1.08rem; max-width:56ch;">I grew up on these lanes, learned the names of every temple and workshop from my grandparents, and now spend my days making sure Ooramana is shared the way it deserves to be — slowly, honestly, and on your terms.</p>
       <p class="host-quote">"I don't run tours through Ooramana. I introduce guests to my neighbours."</p>
     </div>
   </div>
 </header>
 
 <!-- ===== Contact Info & Map ===== -->
-<section id="contact-info">
+<section id="contact-info" class="grain">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Get in Touch</span>
-      <h2>Plan your visit</h2>
+      <h2>Plan your <em>visit</em></h2>
     </div>
 
     <div class="contact-grid">
       <div class="contact-cards">
-        <div class="contact-item neu-flat reveal reveal-delay-1">
+        <div class="contact-item reveal reveal-delay-1">
           <div class="ic">📞</div>
           <div><h4>Call or WhatsApp</h4><p>+91 99999 99999</p></div>
         </div>
-        <div class="contact-item neu-flat reveal reveal-delay-2">
+        <div class="contact-item reveal reveal-delay-2">
           <div class="ic">✉️</div>
           <div><h4>Email</h4><p>hello@ooramanaheritage.com</p></div>
         </div>
-        <div class="contact-item neu-flat reveal reveal-delay-3">
+        <div class="contact-item reveal reveal-delay-3">
           <div class="ic">📍</div>
           <div><h4>Location</h4><p>Ooramana, near Kadamattom, Ernakulam District, Kerala</p></div>
         </div>
       </div>
 
-      <div class="map-frame neu-out reveal reveal-delay-2">
+      <div class="map-frame reveal reveal-delay-2">
         <div class="icon">🗺️</div>
-        <h4 style="margin:0;">Google Map Embed</h4>
-        <span>Replace this placeholder with an embedded Google Map<br>for Ooramana, Kerala once you have your final location pin.</span>
+        <h4>Google Map Embed</h4>
+        <span>Replace this placeholder with an embedded Google Map for Ooramana, Kerala once you have your final location pin.</span>
       </div>
     </div>
   </div>
@@ -80,11 +85,11 @@
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow">Good to Know</span>
-      <h2>Frequently Asked Questions</h2>
+      <h2>Frequently Asked <em>Questions</em></h2>
     </div>
 
     <div class="accordion">
-      <div class="acc-item neu-out reveal reveal-delay-1">
+      <div class="acc-item reveal reveal-delay-1">
         <button class="acc-trigger">
           How do I reach Ooramana?
           <span class="plus">+</span>
@@ -96,7 +101,7 @@
         </div>
       </div>
 
-      <div class="acc-item neu-out reveal reveal-delay-2">
+      <div class="acc-item reveal reveal-delay-2">
         <button class="acc-trigger">
           What should I wear?
           <span class="plus">+</span>
@@ -108,7 +113,7 @@
         </div>
       </div>
 
-      <div class="acc-item neu-out reveal reveal-delay-3">
+      <div class="acc-item reveal reveal-delay-3">
         <button class="acc-trigger">
           Are the tours private?
           <span class="plus">+</span>
@@ -128,7 +133,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand"><span class="brand-mark" style="width:30px;height:30px;font-size:.78rem;">O</span> Ooramana Heritage Tours</div>
+        <div class="footer-brand"><span class="brand-mark" style="width:32px;height:32px;font-size:.85rem;">O</span> Ooramana Heritage Tours</div>
         <p>Private, fully customizable heritage trails through the village of Ooramana, Kerala.</p>
         <div class="social-row">
           <a href="#" class="social-icon" aria-label="Instagram">📷</a>
