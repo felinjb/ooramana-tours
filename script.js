@@ -1,5 +1,5 @@
 /* =========================================================
-   Ooramana Heritage Tours — Shared Site Script
+   Ooramana Heritage Tours — Cinematic Kerala Luxury (JS)
    ========================================================= */
 
 /* ---------- Config ---------- */
@@ -12,8 +12,27 @@ const PACKAGE_PRICES = {
   full: { label: "Full-Day Immersion", price: 2500 },
 };
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Glass navbar on scroll ---------- */
+(function initNavbarScroll() {
+  const navbar = document.querySelector(".navbar");
+  if (!navbar) return;
+
+  function update() {
+    if (navbar.classList.contains("solid")) {
+      navbar.classList.add("scrolled");
+      return;
+    }
+    if (window.scrollY > 40) navbar.classList.add("scrolled");
+    else navbar.classList.remove("scrolled");
+  }
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+})();
+
 /* ---------- Mobile nav toggle ---------- */
-(function initNav() {
+(function initNavToggle() {
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
   if (!toggle || !links) return;
@@ -21,14 +40,36 @@ const PACKAGE_PRICES = {
   toggle.addEventListener("click", () => {
     toggle.classList.toggle("open");
     links.classList.toggle("open");
+    document.body.style.overflow = links.classList.contains("open") ? "hidden" : "";
   });
 
   links.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => {
       toggle.classList.remove("open");
       links.classList.remove("open");
+      document.body.style.overflow = "";
     });
   });
+})();
+
+/* ---------- Hero parallax ---------- */
+(function initParallax() {
+  const bg = document.querySelector(".hero-bg");
+  if (!bg || prefersReducedMotion) return;
+
+  let ticking = false;
+  function update() {
+    const y = window.scrollY;
+    bg.style.transform = `translateY(${y * 0.28}px) scale(1.06)`;
+    ticking = false;
+  }
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  update();
 })();
 
 /* ---------- Scroll reveal animation ---------- */
@@ -50,7 +91,7 @@ const PACKAGE_PRICES = {
         }
       });
     },
-    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+    { threshold: 0.14, rootMargin: "0px 0px -70px 0px" }
   );
 
   items.forEach((el) => observer.observe(el));
@@ -67,7 +108,6 @@ const PACKAGE_PRICES = {
       const panel = item.querySelector(".acc-panel");
       const isOpen = item.classList.contains("open");
 
-      // Close all other panels (single-open accordion)
       document.querySelectorAll(".acc-item.open").forEach((openItem) => {
         if (openItem !== item) {
           openItem.classList.remove("open");
@@ -86,19 +126,51 @@ const PACKAGE_PRICES = {
   });
 })();
 
-/* ---------- Testimonial carousel (simple auto-rotate on mobile dots, if present) ---------- */
-(function initTestimonialDots() {
-  const dots = document.querySelectorAll(".testi-dot");
-  const cards = document.querySelectorAll(".testi-card[data-slide]");
-  if (!dots.length || !cards.length) return;
+/* ---------- Testimonial carousel ---------- */
+(function initCarousel() {
+  const track = document.querySelector(".carousel-slides");
+  const slides = document.querySelectorAll(".carousel-slide");
+  const prevBtn = document.querySelector(".carousel-arrow.prev");
+  const nextBtn = document.querySelector(".carousel-arrow.next");
+  const dotsWrap = document.querySelector(".carousel-dots");
+  if (!track || !slides.length) return;
 
-  dots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      const slide = dot.dataset.slide;
-      cards.forEach((c) => c.classList.toggle("active", c.dataset.slide === slide));
-      dots.forEach((d) => d.classList.toggle("active", d === dot));
+  let index = 0;
+
+  // Build dots
+  if (dotsWrap) {
+    dotsWrap.innerHTML = "";
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+      dot.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
+      dot.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(dot);
     });
-  });
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    if (dotsWrap) {
+      dotsWrap.querySelectorAll(".carousel-dot").forEach((d, di) => {
+        d.classList.toggle("active", di === index);
+      });
+    }
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", () => goTo(index - 1));
+  if (nextBtn) nextBtn.addEventListener("click", () => goTo(index + 1));
+
+  // Auto-advance
+  let autoTimer = setInterval(() => goTo(index + 1), 6000);
+  const carousel = document.querySelector(".carousel");
+  if (carousel) {
+    carousel.addEventListener("mouseenter", () => clearInterval(autoTimer));
+    carousel.addEventListener("mouseleave", () => {
+      autoTimer = setInterval(() => goTo(index + 1), 6000);
+    });
+  }
 })();
 
 /* ---------- Booking price calculator + WhatsApp submission ---------- */
