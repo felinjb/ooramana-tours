@@ -70,6 +70,22 @@ button:focus-visible,
   outline-offset: 3px;
 }
 
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: var(--space-sm);
+  z-index: 200;
+  background: var(--color-forest);
+  color: var(--color-white);
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: top 0.25s var(--ease-out);
+}
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
 .container {
   max-width: var(--max-width);
   margin-inline: auto;
@@ -81,8 +97,8 @@ button:focus-visible,
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-laterite);
-  font-weight: 500;
+  color: var(--color-laterite-deep);
+  font-weight: 600;
 }
 
 .section {
@@ -123,9 +139,33 @@ button:focus-visible,
 .site-header.is-scrolled {
   background: rgba(244, 239, 230, 0.94);
   backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 rgba(43, 32, 25, 0.08);
   padding-block: var(--space-xs);
 }
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 6px;
+  background:
+    linear-gradient(135deg, var(--color-gold) 25%, transparent 25%) 0 0 / 6px 6px,
+    linear-gradient(-135deg, var(--color-gold) 25%, transparent 25%) 0 0 / 6px 6px;
+  background-color: var(--color-laterite);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+.site-header.is-scrolled::after { opacity: 1; }
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(20, 38, 29, 0.55) 0%, rgba(20, 38, 29, 0) 100%);
+  opacity: 1;
+  transition: opacity 0.4s var(--ease-out);
+}
+.site-header.is-scrolled::before { opacity: 0; }
 
 .brand {
   font-family: var(--font-display);
@@ -183,8 +223,8 @@ button:focus-visible,
   display: none;
   background: none;
   border: none;
-  width: 34px;
-  height: 22px;
+  width: 44px;
+  height: 44px;
   position: relative;
 }
 .nav-toggle span,
@@ -192,8 +232,8 @@ button:focus-visible,
 .nav-toggle::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 11px;
+  right: 11px;
   height: 2px;
   background: var(--color-white);
   transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out), background 0.3s var(--ease-out);
@@ -201,12 +241,12 @@ button:focus-visible,
 .site-header.is-scrolled .nav-toggle span,
 .site-header.is-scrolled .nav-toggle::before,
 .site-header.is-scrolled .nav-toggle::after { background: var(--color-forest); }
-.nav-toggle::before { top: 0; }
-.nav-toggle span { top: 10px; }
-.nav-toggle::after { top: 20px; }
-.nav-toggle[aria-expanded="true"]::before { transform: translateY(10px) rotate(45deg); }
+.nav-toggle::before { top: 15px; }
+.nav-toggle span { top: 21px; }
+.nav-toggle::after { top: 27px; }
+.nav-toggle[aria-expanded="true"]::before { transform: translateY(6px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span { opacity: 0; }
-.nav-toggle[aria-expanded="true"]::after { transform: translateY(-10px) rotate(-45deg); }
+.nav-toggle[aria-expanded="true"]::after { transform: translateY(-6px) rotate(-45deg); }
 
 /* ---- Hero ---- */
 .hero {
@@ -304,6 +344,40 @@ button:focus-visible,
   color: var(--color-white);
 }
 .btn--dark:hover { background: var(--color-forest-deep); transform: translateY(-2px); }
+
+/* ---- Kasavu border (gold temple-zigzag, from Kerala saree border) ---- */
+.kasavu-border {
+  height: 14px;
+  width: 100%;
+  background:
+    linear-gradient(135deg, var(--color-gold) 25%, transparent 25%) 0 0 / 14px 14px,
+    linear-gradient(-135deg, var(--color-gold) 25%, transparent 25%) 0 0 / 14px 14px;
+  background-color: var(--color-laterite);
+  background-repeat: repeat-x;
+}
+
+/* ---- Roof-tile edge (nalukettu sloped-tile silhouette) ---- */
+.roof-edge {
+  height: 34px;
+  background: var(--color-ivory);
+  clip-path: polygon(
+    0% 100%, 0% 40%, 4% 0%, 8% 40%, 12% 0%, 16% 40%, 20% 0%, 24% 40%,
+    28% 0%, 32% 40%, 36% 0%, 40% 40%, 44% 0%, 48% 40%, 52% 0%, 56% 40%,
+    60% 0%, 64% 40%, 68% 0%, 72% 40%, 76% 0%, 80% 40%, 84% 0%, 88% 40%,
+    92% 0%, 96% 40%, 100% 0%, 100% 100%
+  );
+}
+.roof-edge--forest { background: var(--color-forest); }
+.roof-edge--charcoal { background: var(--color-charcoal); }
+
+/* ---- Laterite texture (subtle speckle, for dark sections) ---- */
+.texture-laterite {
+  background-image:
+    radial-gradient(rgba(184, 146, 90, 0.09) 1px, transparent 1px),
+    radial-gradient(rgba(184, 146, 90, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px, 18px 18px;
+  background-position: 0 0, 9px 9px;
+}
 
 /* ---- Arch motif (signature element) ---- */
 .arch-frame {
