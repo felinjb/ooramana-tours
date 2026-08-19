@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header">
     <a class="brand" href="index.html">
@@ -18,7 +19,7 @@
       <span>Est. Kerala Backwater Country</span>
     </a>
     <nav aria-label="Primary">
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html#about">Ooramana</a></li>
         <li><a href="index.html#packages">Journeys</a></li>
         <li><a href="half-day.html">Half-Day</a></li>
@@ -26,10 +27,10 @@
         <li><a class="nav-cta" href="full-day.html#booking">Book a Journey</a></li>
       </ul>
     </nav>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false"><span></span></button>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
     <section class="hero">
       <div class="hero__media">
@@ -47,11 +48,13 @@
       <span class="hero__scroll">Scroll to begin</span>
     </section>
 
+    <div class="roof-edge" aria-hidden="true"></div>
+
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container split reveal">
         <div class="split__media arch-frame">
-          <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80" alt="Ancient laterite stone church architecture typical of Kerala heritage sites" />
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80" alt="Ancient laterite stone church architecture typical of Kerala heritage sites" />
         </div>
         <div class="split__body">
           <p class="eyebrow">The Village</p>
@@ -77,7 +80,7 @@
           <article class="package-card reveal">
             <div class="package-card__media">
               <span class="package-card__tag">Half-Day</span>
-              <img src="https://images.unsplash.com/photo-1565193566173-7a0af771d71a?auto=format&fit=crop&w=1000&q=80" alt="Artisan hands shaping traditional pottery on a wheel" />
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1565193566173-7a0af771d71a?auto=format&fit=crop&w=1000&q=80" alt="Artisan hands shaping traditional pottery on a wheel" />
             </div>
             <div class="package-card__body">
               <h3>The Village Immersive</h3>
@@ -98,7 +101,7 @@
           <article class="package-card reveal">
             <div class="package-card__media">
               <span class="package-card__tag">Full-Day</span>
-              <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80" alt="Traditional wooden country boat resting on the calm Muvattupuzha river" />
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80" alt="Traditional wooden country boat resting on the calm Muvattupuzha river" />
             </div>
             <div class="package-card__body">
               <h3>The Complete Explorer</h3>
@@ -119,8 +122,10 @@
       </div>
     </section>
 
+    <div class="roof-edge roof-edge--forest" aria-hidden="true"></div>
+
     <!-- TESTIMONIALS -->
-    <section class="section section--forest">
+    <section class="section section--forest texture-laterite">
       <div class="container">
         <p class="eyebrow reveal">Words From The Trail</p>
         <h2 class="reveal">Guests remember the quiet most.</h2>
@@ -141,6 +146,8 @@
       </div>
     </section>
   </main>
+
+  <div class="roof-edge roof-edge--charcoal" aria-hidden="true"></div>
 
   <footer class="site-footer">
     <div class="container">
